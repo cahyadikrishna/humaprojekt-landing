@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type CSSProperties } from "react";
+import Image from "next/image";
 
 interface FeatureCard {
   icon: string;
@@ -30,100 +31,28 @@ interface Project {
   gradientFrom: string;
   gradientTo: string;
   icon: string;
+  contentImage?: string;
   featureCards: FeatureCard[];
   techCards: TechCard[];
 }
 
 const projects: Project[] = [
   {
-    display: "mobile",
-    title: "Photography Vendor Platform",
-    subtitle: "Full-stack booking system",
-    tags: ["Next.js", "Postgres"],
-    accentColor: "rgba(124,58,237,0.08)",
-    accentGlow: "bg-purple-500/20",
-    gradientFrom: "from-violet-500",
-    gradientTo: "to-purple-600",
-    icon: "photo_camera",
-    featureCards: [
-      {
-        icon: "calendar_month",
-        title: "Smart Booking",
-        description: "Real-time availability with instant confirmation.",
-        iconBg: "bg-violet-100",
-        iconColor: "text-violet-600",
-        position: "top-[16%] left-[2%]",
-        rotation: "-rotate-6",
-      },
-      {
-        icon: "payments",
-        title: "Secure Payments",
-        description: "Stripe-powered escrow for every session.",
-        iconBg: "bg-purple-100",
-        iconColor: "text-purple-600",
-        position: "bottom-[20%] right-[2%]",
-        rotation: "rotate-3",
-      },
-    ],
-    techCards: [
-      { icon: "data_object", label: "Next.js", position: "-translate-y-44 translate-x-4", rotation: "-rotate-6" },
-      { icon: "database", label: "Supabase", position: "translate-y-40 translate-x-28", rotation: "rotate-6" },
-      { icon: "cloud", label: "Vercel", position: "-translate-y-16 translate-x-44", rotation: "rotate-12" },
-      { icon: "image", label: "Cloudinary", position: "translate-y-16 -translate-x-40", rotation: "-rotate-6" },
-    ],
-  },
-  {
-    display: "desktop",
-    title: "Censly Dashboard",
-    subtitle: "Financial analytics platform",
-    tags: ["React", "D3.js", "Node.js"],
-    accentColor: "rgba(99,102,241,0.08)",
-    accentGlow: "bg-indigo-500/15",
-    gradientFrom: "from-indigo-500",
-    gradientTo: "to-violet-500",
-    icon: "monitoring",
-    featureCards: [
-      {
-        icon: "insights",
-        title: "Real-time Charts",
-        description: "Live data visualization with sub-second updates.",
-        iconBg: "bg-indigo-100",
-        iconColor: "text-indigo-600",
-        position: "top-[8%] left-[0%]",
-        rotation: "-rotate-3",
-      },
-      {
-        icon: "shield",
-        title: "Role-based Access",
-        description: "Granular permissions for teams and orgs.",
-        iconBg: "bg-violet-100",
-        iconColor: "text-violet-600",
-        position: "bottom-[12%] right-[0%]",
-        rotation: "rotate-3",
-      },
-    ],
-    techCards: [
-      { icon: "code", label: "React", position: "-translate-y-48 -translate-x-44 md:-translate-x-72", rotation: "-rotate-6" },
-      { icon: "bar_chart", label: "D3.js", position: "-translate-y-48 translate-x-44 md:translate-x-72", rotation: "rotate-6" },
-      { icon: "dns", label: "Node.js", position: "translate-y-32 translate-x-52 md:translate-x-80", rotation: "rotate-12" },
-      { icon: "database", label: "Postgres", position: "translate-y-32 -translate-x-52 md:-translate-x-80", rotation: "-rotate-12" },
-    ],
-  },
-  {
     display: "desktop",
     title: "Lokerian",
-    subtitle: "Inventory management web app",
+    subtitle: "Web Cari Lowongan Kerja Harian",
     tags: ["Vue", "Nuxt"],
     accentColor: "rgba(34,197,94,0.08)",
     accentGlow: "bg-green-500/15",
     gradientFrom: "from-green-500",
     gradientTo: "to-emerald-500",
-    icon: "inventory_2",
+    icon: "search",
+    contentImage: "https://res.cloudinary.com/dhtysfkix/image/upload/v1774784579/lokerian-landing_wijpcr.webp",
     featureCards: [
       {
         icon: "category",
         title: "Smart Cataloging",
-        description: "Auto-organized inventory with real-time stock sync.",
+        description: "Fresh daily listings from hotels and local businesses.",
         iconBg: "bg-green-100",
         iconColor: "text-green-600",
         position: "top-[8%] left-[0%]",
@@ -131,8 +60,8 @@ const projects: Project[] = [
       },
       {
         icon: "qr_code_scanner",
-        title: "Barcode Scanning",
-        description: "Instant lookup via integrated scanner module.",
+        title: "Easy Management",
+        description: "Post and manage job openings in a few clicks.",
         iconBg: "bg-emerald-100",
         iconColor: "text-emerald-600",
         position: "bottom-[12%] right-[0%]",
@@ -143,24 +72,25 @@ const projects: Project[] = [
       { icon: "code", label: "Vue", position: "-translate-y-48 -translate-x-44 md:-translate-x-72", rotation: "-rotate-6" },
       { icon: "web", label: "Nuxt", position: "-translate-y-48 translate-x-44 md:translate-x-72", rotation: "rotate-6" },
       { icon: "storage", label: "Pinia", position: "translate-y-32 translate-x-52 md:translate-x-80", rotation: "rotate-12" },
-      { icon: "cloud", label: "Vercel", position: "translate-y-32 -translate-x-52 md:-translate-x-80", rotation: "-rotate-12" },
+      { icon: "style", label: "Tailwind", position: "translate-y-32 -translate-x-52 md:-translate-x-80", rotation: "-rotate-12" },
     ],
   },
   {
     display: "desktop",
     title: "Agung Bali Car Rental",
-    subtitle: "Company profile & booking site",
+    subtitle: "Company profile & booking via WhatsApp",
     tags: ["Nuxt", "Tailwind"],
     accentColor: "rgba(245,158,11,0.08)",
     accentGlow: "bg-amber-500/15",
     gradientFrom: "from-amber-500",
     gradientTo: "to-orange-500",
     icon: "directions_car",
+    contentImage: "https://res.cloudinary.com/dhtysfkix/image/upload/v1774784579/carrental-landing_ejho4v.webp",
     featureCards: [
       {
         icon: "event_available",
-        title: "Booking Calendar",
-        description: "Date picker with live fleet availability.",
+        title: "Booking via WA",
+        description: "Pre-filled WhatsApp message for instant inquiry.",
         iconBg: "bg-amber-100",
         iconColor: "text-amber-600",
         position: "top-[8%] left-[0%]",
@@ -168,8 +98,8 @@ const projects: Project[] = [
       },
       {
         icon: "language",
-        title: "Multi-language",
-        description: "EN/ID content for international tourists.",
+        title: "Responsive Display",
+        description: "Seamless layout across desktop and mobile views.",
         iconBg: "bg-orange-100",
         iconColor: "text-orange-600",
         position: "bottom-[12%] right-[0%]",
@@ -179,25 +109,26 @@ const projects: Project[] = [
     techCards: [
       { icon: "web", label: "Nuxt", position: "-translate-y-48 -translate-x-44 md:-translate-x-72", rotation: "-rotate-6" },
       { icon: "style", label: "Tailwind", position: "-translate-y-48 translate-x-44 md:translate-x-72", rotation: "rotate-6" },
-      { icon: "image", label: "Cloudinary", position: "translate-y-32 translate-x-52 md:translate-x-80", rotation: "rotate-12" },
-      { icon: "dns", label: "Netlify", position: "translate-y-32 -translate-x-52 md:-translate-x-80", rotation: "-rotate-12" },
+      { icon: "cloud", label: "Vercel", position: "translate-y-32 translate-x-52 md:translate-x-80", rotation: "rotate-12" },
+      { icon: "chat", label: "WhatsApp", position: "translate-y-32 -translate-x-52 md:-translate-x-80", rotation: "-rotate-12" },
     ],
   },
   {
     display: "desktop",
     title: "Fundamental Codes",
-    subtitle: "Company profile & landing page",
+    subtitle: "Jasa Belajar Coding Online",
     tags: ["Next.js", "TypeScript"],
     accentColor: "rgba(14,165,233,0.08)",
     accentGlow: "bg-sky-500/15",
     gradientFrom: "from-sky-500",
     gradientTo: "to-blue-600",
     icon: "terminal",
+    contentImage: "https://res.cloudinary.com/dhtysfkix/image/upload/v1774784579/funcode-landing_oeeeni.webp",
     featureCards: [
       {
         icon: "speed",
-        title: "Lighthouse 100",
-        description: "Perfect scores across all Core Web Vitals.",
+        title: "Online Course",
+        description: "Structured coding modules with hands-on exercises.",
         iconBg: "bg-sky-100",
         iconColor: "text-sky-600",
         position: "top-[8%] left-[0%]",
@@ -205,8 +136,8 @@ const projects: Project[] = [
       },
       {
         icon: "responsive_layout",
-        title: "Pixel-perfect",
-        description: "Responsive design matching Figma spec 1:1.",
+        title: "Latest Insight",
+        description: "Curriculum aligned with current industry standards.",
         iconBg: "bg-blue-100",
         iconColor: "text-blue-600",
         position: "bottom-[12%] right-[0%]",
@@ -230,11 +161,12 @@ const projects: Project[] = [
     gradientFrom: "from-purple-500",
     gradientTo: "to-fuchsia-500",
     icon: "photo_library",
+    contentImage: "https://res.cloudinary.com/dhtysfkix/image/upload/v1774785464/Screenshot_2026-03-29_at_19.35.16_kigbft.webp",
     featureCards: [
       {
         icon: "bolt",
         title: "Rapid Culling",
-        description: "Keyboard-driven workflow for fast selection.",
+        description: "Keyboard-driven workflow to cull thousands of photos.",
         iconBg: "bg-purple-100",
         iconColor: "text-purple-600",
         position: "top-[8%] left-[0%]",
@@ -243,7 +175,7 @@ const projects: Project[] = [
       {
         icon: "folder_open",
         title: "Batch Export",
-        description: "One-click export of selected photos to folder.",
+        description: "One-click copy of selected photos to any folder.",
         iconBg: "bg-fuchsia-100",
         iconColor: "text-fuchsia-600",
         position: "bottom-[12%] right-[0%]",
@@ -261,17 +193,18 @@ const projects: Project[] = [
     display: "mobile",
     title: "Censly Gen",
     subtitle: "AI-powered assistant",
-    tags: ["OpenAI", "TypeScript"],
+    tags: ["OpenClaw", "TypeScript"],
     accentColor: "rgba(59,130,246,0.08)",
     accentGlow: "bg-blue-500/20",
     gradientFrom: "from-blue-500",
     gradientTo: "to-cyan-500",
     icon: "smart_toy",
+    contentImage: "https://res.cloudinary.com/dhtysfkix/image/upload/v1774784583/IMG_0960_zt1zaz.png",
     featureCards: [
       {
         icon: "psychology",
         title: "Context Engine",
-        description: "Deep memory across multi-turn conversations.",
+        description: "Persistent memory across multi-turn conversations.",
         iconBg: "bg-blue-100",
         iconColor: "text-blue-600",
         position: "top-[16%] left-[2%]",
@@ -279,8 +212,8 @@ const projects: Project[] = [
       },
       {
         icon: "bolt",
-        title: "Streaming Output",
-        description: "Token-by-token real-time responses.",
+        title: "Telegram Integration",
+        description: "Seamless AI chat directly inside Telegram.",
         iconBg: "bg-cyan-100",
         iconColor: "text-cyan-600",
         position: "bottom-[20%] right-[2%]",
@@ -288,27 +221,28 @@ const projects: Project[] = [
       },
     ],
     techCards: [
-      { icon: "auto_awesome", label: "OpenAI", position: "-translate-y-44 translate-x-4", rotation: "-rotate-6" },
+      { icon: "auto_awesome", label: "OpenClaw", position: "-translate-y-44 translate-x-4", rotation: "-rotate-6" },
       { icon: "code", label: "TypeScript", position: "translate-y-40 translate-x-28", rotation: "rotate-6" },
       { icon: "send", label: "Telegram", position: "-translate-y-16 translate-x-44", rotation: "rotate-12" },
-      { icon: "storage", label: "Redis", position: "translate-y-16 -translate-x-40", rotation: "-rotate-6" },
+      { icon: "terminal", label: "KiloCode", position: "translate-y-16 -translate-x-40", rotation: "-rotate-6" },
     ],
   },
   {
     display: "mobile",
     title: "Censly Fin",
-    subtitle: "Financial planning dashboard",
-    tags: ["React Native", "GraphQL"],
+    subtitle: "Financial Helper",
+    tags: ["TypeScript", "Supabase"],
     accentColor: "rgba(16,185,129,0.08)",
     accentGlow: "bg-emerald-500/10",
     gradientFrom: "from-emerald-500",
     gradientTo: "to-teal-500",
     icon: "account_balance",
+    contentImage: "https://res.cloudinary.com/dhtysfkix/image/upload/v1774784588/IMG_0959_bez7u7.png",
     featureCards: [
       {
         icon: "trending_up",
-        title: "Live Analytics",
-        description: "Real-time portfolio tracking and insights.",
+        title: "Telegram",
+        description: "Log transactions instantly via Telegram bot.",
         iconBg: "bg-emerald-100",
         iconColor: "text-emerald-600",
         position: "top-[16%] left-[2%]",
@@ -316,8 +250,8 @@ const projects: Project[] = [
       },
       {
         icon: "security",
-        title: "Bank-grade Security",
-        description: "End-to-end encrypted financial data.",
+        title: "Reporting",
+        description: "Live financial reports synced to Google Sheets.",
         iconBg: "bg-teal-100",
         iconColor: "text-teal-600",
         position: "bottom-[20%] right-[2%]",
@@ -325,10 +259,84 @@ const projects: Project[] = [
       },
     ],
     techCards: [
-      { icon: "phone_android", label: "React Native", position: "-translate-y-44 translate-x-4", rotation: "-rotate-6" },
-      { icon: "schema", label: "GraphQL", position: "translate-y-40 translate-x-28", rotation: "rotate-6" },
+      { icon: "database", label: "Supabase", position: "-translate-y-44 translate-x-4", rotation: "-rotate-6" },
+      { icon: "table_chart", label: "SpreadSheet", position: "translate-y-40 translate-x-28", rotation: "rotate-6" },
       { icon: "search", label: "Google", position: "-translate-y-16 translate-x-44", rotation: "rotate-12" },
-      { icon: "gavel", label: "OpenClaw", position: "translate-y-16 -translate-x-40", rotation: "-rotate-6" },
+    ],
+  },
+  {
+    display: "mobile",
+    title: "Censly Expense App",
+    subtitle: "Mobile app expense tracker",
+    tags: ["React Native", "TypeScript"],
+    accentColor: "rgba(234,88,12,0.08)",
+    accentGlow: "bg-orange-500/20",
+    gradientFrom: "from-orange-500",
+    gradientTo: "to-red-500",
+    icon: "receipt_long",
+    contentImage: "https://res.cloudinary.com/dhtysfkix/image/upload/v1774785465/IMG_0829_mnjc34.webp",
+    featureCards: [
+      {
+        icon: "pie_chart",
+        title: "Spending Insights",
+        description: "Visual breakdowns of expenses by category.",
+        iconBg: "bg-orange-100",
+        iconColor: "text-orange-600",
+        position: "top-[16%] left-[2%]",
+        rotation: "-rotate-6",
+      },
+      {
+        icon: "receipt",
+        title: "Quick Logging",
+        description: "Add expenses in seconds with smart defaults.",
+        iconBg: "bg-red-100",
+        iconColor: "text-red-600",
+        position: "bottom-[20%] right-[2%]",
+        rotation: "rotate-3",
+      },
+    ],
+    techCards: [
+      { icon: "phone_android", label: "React Native", position: "-translate-y-44 translate-x-4", rotation: "-rotate-6" },
+      { icon: "code", label: "TypeScript", position: "translate-y-40 translate-x-28", rotation: "rotate-6" },
+      { icon: "database", label: "Supabase", position: "-translate-y-16 translate-x-44", rotation: "rotate-12" },
+      { icon: "auto_awesome", label: "Gemini", position: "translate-y-16 -translate-x-40", rotation: "-rotate-6" },
+    ],
+  },
+  {
+    display: "desktop",
+    title: "Evisa Landing & Dashboard",
+    subtitle: "Visa application platform",
+    tags: ["Nuxt", "Tailwind"],
+    accentColor: "rgba(99,102,241,0.08)",
+    accentGlow: "bg-indigo-500/15",
+    gradientFrom: "from-indigo-500",
+    gradientTo: "to-blue-500",
+    icon: "flight",
+    contentImage: "https://res.cloudinary.com/dhtysfkix/image/upload/v1774784579/evisa-landing_na4tv3.webp",
+    featureCards: [
+      {
+        icon: "description",
+        title: "Smart Forms",
+        description: "Step-by-step visa application with validation.",
+        iconBg: "bg-indigo-100",
+        iconColor: "text-indigo-600",
+        position: "top-[8%] left-[0%]",
+        rotation: "-rotate-3",
+      },
+      {
+        icon: "track_changes",
+        title: "Status Tracking",
+        description: "Real-time progress updates from visa vendors.",
+        iconBg: "bg-blue-100",
+        iconColor: "text-blue-600",
+        position: "bottom-[12%] right-[0%]",
+        rotation: "rotate-3",
+      },
+    ],
+    techCards: [
+      { icon: "web", label: "Nuxt", position: "-translate-y-48 -translate-x-44 md:-translate-x-72", rotation: "-rotate-6" },
+      { icon: "style", label: "Tailwind", position: "-translate-y-48 translate-x-44 md:translate-x-72", rotation: "rotate-6" },
+      { icon: "widgets", label: "Quasar", position: "translate-y-32 translate-x-52 md:translate-x-80", rotation: "rotate-12" },
     ],
   },
 ];
@@ -441,11 +449,15 @@ function MobileMockup({ project }: { project: Project }) {
       <div className="floating-mockup relative w-[180px] h-[380px] md:w-[220px] md:h-[460px] bg-zinc-900 rounded-[2.5rem] p-1.5 shadow-[0_48px_80px_rgba(45,52,53,0.15)] ring-4 ring-zinc-800/50">
         <div className={`relative w-full h-full bg-gradient-to-br ${project.gradientFrom} ${project.gradientTo} rounded-[2rem] overflow-hidden`}>
           <div className="absolute top-3 left-1/2 -translate-x-1/2 w-14 h-4 bg-black rounded-full z-30" />
-          <div className="absolute inset-0 bg-white/10 backdrop-blur-sm flex items-center justify-center">
-            <span className="material-symbols-outlined text-white/30 text-5xl md:text-6xl">
-              {project.icon}
-            </span>
-          </div>
+          {project.contentImage ? (
+            <Image src={project.contentImage} alt={project.title} fill sizes="(max-width: 768px) 180px, 220px" className="object-cover object-top" />
+          ) : (
+            <div className="absolute inset-0 bg-white/10 backdrop-blur-sm flex items-center justify-center">
+              <span className="material-symbols-outlined text-white/30 text-5xl md:text-6xl">
+                {project.icon}
+              </span>
+            </div>
+          )}
         </div>
       </div>
     </div>
@@ -465,12 +477,15 @@ function DesktopMockup({ project }: { project: Project }) {
         {/* Screen */}
         <div className="w-[300px] h-[195px] md:w-[480px] md:h-[310px] bg-neutral-900 rounded-t-[8px] md:rounded-t-[12px] p-1.5 md:p-2 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.25)] relative overflow-hidden border-[4px] md:border-[6px] border-neutral-800">
           <div className={`w-full h-full bg-gradient-to-br ${project.gradientFrom} ${project.gradientTo} rounded-[3px] md:rounded-[4px] overflow-hidden relative`}>
-            {/* Placeholder */}
-            <div className="absolute inset-0 bg-white/10 backdrop-blur-sm flex items-center justify-center">
-              <span className="material-symbols-outlined text-white/30 text-5xl md:text-7xl">
-                {project.icon}
-              </span>
-            </div>
+            {project.contentImage ? (
+              <Image src={project.contentImage} alt={project.title} fill sizes="(max-width: 768px) 300px, 480px" className="object-cover object-top" />
+            ) : (
+              <div className="absolute inset-0 bg-white/10 backdrop-blur-sm flex items-center justify-center">
+                <span className="material-symbols-outlined text-white/30 text-5xl md:text-7xl">
+                  {project.icon}
+                </span>
+              </div>
+            )}
             {/* Overlay gradient */}
             <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 to-transparent pointer-events-none" />
           </div>
