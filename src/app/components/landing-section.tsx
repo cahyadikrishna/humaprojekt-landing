@@ -1,13 +1,40 @@
 "use client";
 
+import Image from "next/image";
+
 export function LandingSection() {
   return (
     <section className="snap-section flex flex-col items-center justify-center bg-surface">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent opacity-60" />
+      {/* Grid background */}
+      <div className="absolute inset-0 bg-grid" />
+
+      {/* Accent gradient — centered */}
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] pointer-events-none rounded-full blur-3xl"
+        style={{ background: "radial-gradient(circle, rgba(73, 75, 214, 0.18) 0%, transparent 70%)" }}
+      />
 
       {/* Center content */}
       <div className="relative z-10 text-center space-y-6">
+        {/* Profile photo card */}
+        <div className="flex justify-center mb-2">
+          <div
+            className="feature-card animate-float rounded-2xl bg-white/90 backdrop-blur-md p-2 shadow-xl shadow-zinc-200/50"
+            style={
+              { "--rotation": "-2deg", "--float-duration": "4s" } as React.CSSProperties
+            }
+          >
+            <Image
+              src="https://res.cloudinary.com/dhtysfkix/image/upload/v1774801086/IMG_4706_hkeboo.jpg"
+              alt="Cahyadi Krishna"
+              width={144}
+              height={144}
+              className="rounded-lg object-cover w-36 h-36"
+              priority
+            />
+          </div>
+        </div>
+
         <span className="text-[10px] font-bold tracking-[0.25em] text-primary uppercase">
           Portfolio
         </span>
