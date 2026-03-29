@@ -9,10 +9,10 @@ export function LandingSection() {
       {/* Center content */}
       <div className="relative z-10 text-center space-y-6">
         <span className="text-[10px] font-bold tracking-[0.25em] text-primary uppercase">
-          Portfolio 2025
+          Portfolio
         </span>
         <h1 className="text-5xl md:text-8xl font-black tracking-[-0.04em] text-[#111]">
-          My Projects
+          Cahyadi Krishna
         </h1>
         <p className="text-on-surface-variant text-base max-w-xs mx-auto font-light leading-snug tracking-tight">
           Fullstack developer crafting digital experiences with care.
