@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 
 interface FeatureCard {
   icon: string;
@@ -98,15 +98,15 @@ const projects: Project[] = [
         description: "Granular permissions for teams and orgs.",
         iconBg: "bg-violet-100",
         iconColor: "text-violet-600",
-        position: "top-[8%] right-[0%]",
+        position: "bottom-[12%] right-[0%]",
         rotation: "rotate-3",
       },
     ],
     techCards: [
-      { icon: "code", label: "React", position: "-translate-y-48 -translate-x-44", rotation: "-rotate-6" },
-      { icon: "bar_chart", label: "D3.js", position: "-translate-y-48 translate-x-44", rotation: "rotate-6" },
-      { icon: "dns", label: "Node.js", position: "translate-y-32 translate-x-52", rotation: "rotate-12" },
-      { icon: "database", label: "Postgres", position: "translate-y-32 -translate-x-52", rotation: "-rotate-12" },
+      { icon: "code", label: "React", position: "-translate-y-48 -translate-x-44 md:-translate-x-72", rotation: "-rotate-6" },
+      { icon: "bar_chart", label: "D3.js", position: "-translate-y-48 translate-x-44 md:translate-x-72", rotation: "rotate-6" },
+      { icon: "dns", label: "Node.js", position: "translate-y-32 translate-x-52 md:translate-x-80", rotation: "rotate-12" },
+      { icon: "database", label: "Postgres", position: "translate-y-32 -translate-x-52 md:-translate-x-80", rotation: "-rotate-12" },
     ],
   },
   {
@@ -135,15 +135,15 @@ const projects: Project[] = [
         description: "Instant lookup via integrated scanner module.",
         iconBg: "bg-emerald-100",
         iconColor: "text-emerald-600",
-        position: "top-[8%] right-[0%]",
+        position: "bottom-[12%] right-[0%]",
         rotation: "rotate-3",
       },
     ],
     techCards: [
-      { icon: "code", label: "Vue", position: "-translate-y-48 -translate-x-44", rotation: "-rotate-6" },
-      { icon: "web", label: "Nuxt", position: "-translate-y-48 translate-x-44", rotation: "rotate-6" },
-      { icon: "storage", label: "Pinia", position: "translate-y-32 translate-x-52", rotation: "rotate-12" },
-      { icon: "cloud", label: "Vercel", position: "translate-y-32 -translate-x-52", rotation: "-rotate-12" },
+      { icon: "code", label: "Vue", position: "-translate-y-48 -translate-x-44 md:-translate-x-72", rotation: "-rotate-6" },
+      { icon: "web", label: "Nuxt", position: "-translate-y-48 translate-x-44 md:translate-x-72", rotation: "rotate-6" },
+      { icon: "storage", label: "Pinia", position: "translate-y-32 translate-x-52 md:translate-x-80", rotation: "rotate-12" },
+      { icon: "cloud", label: "Vercel", position: "translate-y-32 -translate-x-52 md:-translate-x-80", rotation: "-rotate-12" },
     ],
   },
   {
@@ -172,15 +172,15 @@ const projects: Project[] = [
         description: "EN/ID content for international tourists.",
         iconBg: "bg-orange-100",
         iconColor: "text-orange-600",
-        position: "top-[8%] right-[0%]",
+        position: "bottom-[12%] right-[0%]",
         rotation: "rotate-3",
       },
     ],
     techCards: [
-      { icon: "web", label: "Nuxt", position: "-translate-y-48 -translate-x-44", rotation: "-rotate-6" },
-      { icon: "style", label: "Tailwind", position: "-translate-y-48 translate-x-44", rotation: "rotate-6" },
-      { icon: "image", label: "Cloudinary", position: "translate-y-32 translate-x-52", rotation: "rotate-12" },
-      { icon: "dns", label: "Netlify", position: "translate-y-32 -translate-x-52", rotation: "-rotate-12" },
+      { icon: "web", label: "Nuxt", position: "-translate-y-48 -translate-x-44 md:-translate-x-72", rotation: "-rotate-6" },
+      { icon: "style", label: "Tailwind", position: "-translate-y-48 translate-x-44 md:translate-x-72", rotation: "rotate-6" },
+      { icon: "image", label: "Cloudinary", position: "translate-y-32 translate-x-52 md:translate-x-80", rotation: "rotate-12" },
+      { icon: "dns", label: "Netlify", position: "translate-y-32 -translate-x-52 md:-translate-x-80", rotation: "-rotate-12" },
     ],
   },
   {
@@ -209,15 +209,15 @@ const projects: Project[] = [
         description: "Responsive design matching Figma spec 1:1.",
         iconBg: "bg-blue-100",
         iconColor: "text-blue-600",
-        position: "top-[8%] right-[0%]",
+        position: "bottom-[12%] right-[0%]",
         rotation: "rotate-3",
       },
     ],
     techCards: [
-      { icon: "data_object", label: "Next.js", position: "-translate-y-48 -translate-x-44", rotation: "-rotate-6" },
-      { icon: "code", label: "TypeScript", position: "-translate-y-48 translate-x-44", rotation: "rotate-6" },
-      { icon: "style", label: "Tailwind", position: "translate-y-32 translate-x-52", rotation: "rotate-12" },
-      { icon: "cloud", label: "Vercel", position: "translate-y-32 -translate-x-52", rotation: "-rotate-12" },
+      { icon: "data_object", label: "Next.js", position: "-translate-y-48 -translate-x-44 md:-translate-x-72", rotation: "-rotate-6" },
+      { icon: "code", label: "TypeScript", position: "-translate-y-48 translate-x-44 md:translate-x-72", rotation: "rotate-6" },
+      { icon: "style", label: "Tailwind", position: "translate-y-32 translate-x-52 md:translate-x-80", rotation: "rotate-12" },
+      { icon: "cloud", label: "Vercel", position: "translate-y-32 -translate-x-52 md:-translate-x-80", rotation: "-rotate-12" },
     ],
   },
   {
@@ -246,15 +246,15 @@ const projects: Project[] = [
         description: "One-click export of selected photos to folder.",
         iconBg: "bg-fuchsia-100",
         iconColor: "text-fuchsia-600",
-        position: "top-[8%] right-[0%]",
+        position: "bottom-[12%] right-[0%]",
         rotation: "rotate-3",
       },
     ],
     techCards: [
-      { icon: "desktop_windows", label: "Electron", position: "-translate-y-48 -translate-x-44", rotation: "-rotate-6" },
-      { icon: "code", label: "React", position: "-translate-y-48 translate-x-44", rotation: "rotate-6" },
-      { icon: "data_object", label: "Node.js", position: "translate-y-32 translate-x-52", rotation: "rotate-12" },
-      { icon: "image", label: "Sharp", position: "translate-y-32 -translate-x-52", rotation: "-rotate-12" },
+      { icon: "desktop_windows", label: "Electron", position: "-translate-y-48 -translate-x-44 md:-translate-x-72", rotation: "-rotate-6" },
+      { icon: "code", label: "React", position: "-translate-y-48 translate-x-44 md:translate-x-72", rotation: "rotate-6" },
+      { icon: "data_object", label: "Node.js", position: "translate-y-32 translate-x-52 md:translate-x-80", rotation: "rotate-12" },
+      { icon: "image", label: "Sharp", position: "translate-y-32 -translate-x-52 md:-translate-x-80", rotation: "-rotate-12" },
     ],
   },
   {
@@ -338,10 +338,11 @@ const projects: Project[] = [
 function TechCards({ cards }: { cards: TechCard[] }) {
   return (
     <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-      {cards.map((tech) => (
+      {cards.map((tech, i) => (
         <div
           key={tech.label}
-          className={`absolute ${tech.position} ${tech.rotation} flex flex-col items-center gap-1`}
+          className={`absolute ${tech.position} ${tech.rotation} flex flex-col items-center gap-1 animate-float`}
+          style={{ "--float-delay": `${i * 0.7}s`, "--float-duration": `${3 + i * 0.3}s` } as CSSProperties}
         >
           <div className="w-11 h-11 md:w-12 md:h-12 bg-white rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.06)] border border-zinc-100 flex items-center justify-center">
             {tech.logo ? (
@@ -362,13 +363,24 @@ function TechCards({ cards }: { cards: TechCard[] }) {
   );
 }
 
+function rotationToDeg(twClass: string): string {
+  const match = twClass.match(/(-?)rotate-(\d+)/);
+  if (!match) return "0deg";
+  return `${match[1]}${match[2]}deg`;
+}
+
 function FeatureCards({ cards }: { cards: FeatureCard[] }) {
   return (
     <div className="absolute inset-0 z-30 pointer-events-none">
-      {cards.map((card) => (
+      {cards.map((card, i) => (
         <div
           key={card.title}
-          className={`absolute ${card.position} w-36 md:w-44 p-3 md:p-4 bg-white/90 backdrop-blur-md rounded-2xl shadow-xl shadow-zinc-200/50 border border-white/20 ${card.rotation} pointer-events-auto hover:translate-y-0 transition-transform duration-300`}
+          className={`feature-card animate-float absolute ${card.position} w-36 md:w-44 p-3 md:p-4 bg-white/90 backdrop-blur-md rounded-2xl shadow-xl shadow-zinc-200/50 border border-white/20 pointer-events-auto`}
+          style={{
+            "--rotation": rotationToDeg(card.rotation),
+            "--float-delay": `${0.3 + i * 0.8}s`,
+            "--float-duration": `${3.5 + i * 0.3}s`,
+          } as CSSProperties}
         >
           <div className={`w-7 h-7 rounded-lg ${card.iconBg} flex items-center justify-center mb-2`}>
             <span className={`material-symbols-outlined ${card.iconColor} text-sm`}>
@@ -390,9 +402,11 @@ function FeatureCards({ cards }: { cards: FeatureCard[] }) {
 function ProjectInfo({
   project,
   className,
+  centerTags,
 }: {
   project: Project;
   className?: string;
+  centerTags?: boolean;
 }) {
   return (
     <div className={className}>
@@ -404,7 +418,7 @@ function ProjectInfo({
           {project.subtitle}
         </p>
       </div>
-      <div className="flex gap-3 justify-center md:justify-start mt-4">
+      <div className={`flex gap-3 justify-center ${centerTags ? "" : "md:justify-start"} mt-4`}>
         {project.tags.map((tag) => (
           <span
             key={tag}
@@ -487,12 +501,15 @@ function MobileProjectCard({ project }: { project: Project }) {
 
   return (
     <section ref={sectionRef} className="snap-section bg-surface">
+      {/* Grid background */}
+      <div className="absolute inset-0 pointer-events-none bg-grid opacity-70" />
+      {/* Accent gradient — centered on mobile, right-side on desktop (under mockup) */}
       <div
-        className="absolute top-0 right-0 w-[500px] h-[500px] pointer-events-none"
-        style={{ background: `radial-gradient(circle, ${project.accentColor} 0%, transparent 70%)` }}
+        className="absolute top-1/2 left-1/2 md:left-auto md:right-[20%] -translate-x-1/2 -translate-y-1/2 md:translate-x-1/2 w-[600px] h-[600px] pointer-events-none rounded-full blur-3xl"
+        style={{ background: `radial-gradient(circle, ${project.accentColor.replace(/[\d.]+\)$/, "0.18)")} 0%, transparent 70%)` }}
       />
 
-      <div className="h-full max-w-screen-2xl mx-auto px-5 flex flex-col items-center justify-center gap-6 md:flex-row md:gap-20">
+      <div className="relative h-full max-w-screen-2xl mx-auto px-5 flex flex-col items-center justify-center gap-6 md:flex-row md:gap-20">
         {/* Stage */}
         <div
           className={`relative order-1 md:order-2 w-full max-w-sm h-[420px] md:h-[500px] perspective-1000 flex items-center justify-center ${
@@ -531,12 +548,15 @@ function DesktopProjectCard({ project }: { project: Project }) {
 
   return (
     <section ref={sectionRef} className="snap-section bg-surface">
+      {/* Grid background */}
+      <div className="absolute inset-0 pointer-events-none bg-grid opacity-70" />
+      {/* Accent gradient — centered under mockup */}
       <div
-        className="absolute top-0 right-0 w-[500px] h-[500px] pointer-events-none"
-        style={{ background: `radial-gradient(circle, ${project.accentColor} 0%, transparent 70%)` }}
+        className="absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] pointer-events-none rounded-full blur-3xl"
+        style={{ background: `radial-gradient(circle, ${project.accentColor.replace(/[\d.]+\)$/, "0.18)")} 0%, transparent 70%)` }}
       />
 
-      <div className="h-full max-w-screen-2xl mx-auto px-5 flex flex-col items-center justify-center gap-6">
+      <div className="relative h-full max-w-screen-2xl mx-auto px-5 flex flex-col items-center justify-center gap-6">
         {/* Stage — centered for both mobile & desktop viewport */}
         <div
           className={`relative w-full max-w-2xl h-[340px] md:h-[420px] flex items-center justify-center ${
@@ -551,6 +571,7 @@ function DesktopProjectCard({ project }: { project: Project }) {
         {/* Info — always below, centered */}
         <ProjectInfo
           project={project}
+          centerTags
           className={`max-w-md text-center ${
             isVisible ? "animate-fade-in-up-delay-1" : "opacity-0"
           }`}
