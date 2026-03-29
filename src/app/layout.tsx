@@ -9,7 +9,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "CURATOR | Developer Portfolio",
+  title: "Cahyadi Krishna | Projects Portfolio",
   description:
     "Fullstack developer portfolio — crafted with care, built for impact.",
 };
