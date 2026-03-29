@@ -118,6 +118,7 @@ body {
 .animate-float {
   animation: float var(--float-duration, 3s) ease-in-out infinite;
   animation-delay: var(--float-delay, 0s);
+  will-change: transform;
 }
 
 /* Feature card hover micro-interaction */

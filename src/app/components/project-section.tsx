@@ -199,7 +199,7 @@ const projects: Project[] = [
     gradientFrom: "from-blue-500",
     gradientTo: "to-cyan-500",
     icon: "smart_toy",
-    contentImage: "https://res.cloudinary.com/dhtysfkix/image/upload/v1774784583/IMG_0960_zt1zaz.png",
+    contentImage: "https://res.cloudinary.com/dhtysfkix/image/upload/v1774805207/IMG_0960_xmy0bl.webp",
     featureCards: [
       {
         icon: "psychology",
@@ -237,7 +237,7 @@ const projects: Project[] = [
     gradientFrom: "from-emerald-500",
     gradientTo: "to-teal-500",
     icon: "account_balance",
-    contentImage: "https://res.cloudinary.com/dhtysfkix/image/upload/v1774784588/IMG_0959_bez7u7.png",
+    contentImage: "https://res.cloudinary.com/dhtysfkix/image/upload/v1774805207/IMG_0959_siofof.webp",
     featureCards: [
       {
         icon: "trending_up",
@@ -312,7 +312,7 @@ const projects: Project[] = [
     gradientFrom: "from-indigo-500",
     gradientTo: "to-blue-500",
     icon: "flight",
-    contentImage: "https://res.cloudinary.com/dhtysfkix/image/upload/v1774784579/evisa-landing_na4tv3.webp",
+    contentImage: "https://res.cloudinary.com/dhtysfkix/image/upload/v1774805207/evisa-landing_1_fijzn6.webp",
     featureCards: [
       {
         icon: "description",
@@ -343,13 +343,13 @@ const projects: Project[] = [
 
 /* ─── Shared sub-components ─── */
 
-function TechCards({ cards }: { cards: TechCard[] }) {
+function TechCards({ cards, isVisible }: { cards: TechCard[]; isVisible: boolean }) {
   return (
     <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
       {cards.map((tech, i) => (
         <div
           key={tech.label}
-          className={`absolute ${tech.position} ${tech.rotation} flex flex-col items-center gap-1 animate-float`}
+          className={`absolute ${tech.position} ${tech.rotation} flex flex-col items-center gap-1 ${isVisible ? "animate-float" : ""}`}
           style={{ "--float-delay": `${i * 0.7}s`, "--float-duration": `${3 + i * 0.3}s` } as CSSProperties}
         >
           <div className="w-11 h-11 md:w-12 md:h-12 bg-white rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.06)] border border-zinc-100 flex items-center justify-center">
@@ -377,13 +377,13 @@ function rotationToDeg(twClass: string): string {
   return `${match[1]}${match[2]}deg`;
 }
 
-function FeatureCards({ cards }: { cards: FeatureCard[] }) {
+function FeatureCards({ cards, isVisible }: { cards: FeatureCard[]; isVisible: boolean }) {
   return (
     <div className="absolute inset-0 z-30 pointer-events-none">
       {cards.map((card, i) => (
         <div
           key={card.title}
-          className={`feature-card animate-float absolute ${card.position} w-36 md:w-44 p-3 md:p-4 bg-white/90 backdrop-blur-md rounded-2xl shadow-xl shadow-zinc-200/50 border border-white/20 pointer-events-auto`}
+          className={`feature-card ${isVisible ? "animate-float" : ""} absolute ${card.position} w-36 md:w-44 p-3 md:p-4 bg-white/90 backdrop-blur-md rounded-2xl shadow-xl shadow-zinc-200/50 border border-white/20 pointer-events-auto`}
           style={{
             "--rotation": rotationToDeg(card.rotation),
             "--float-delay": `${0.3 + i * 0.8}s`,
@@ -508,7 +508,7 @@ function MobileProjectCard({ project }: { project: Project }) {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => setIsVisible(entry.isIntersecting),
-      { threshold: 0.5 }
+      { threshold: 0.15 }
     );
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
@@ -531,9 +531,9 @@ function MobileProjectCard({ project }: { project: Project }) {
             isVisible ? "animate-fade-in-up" : "opacity-0"
           }`}
         >
-          <TechCards cards={project.techCards} />
+          <TechCards cards={project.techCards} isVisible={isVisible} />
           <MobileMockup project={project} />
-          <FeatureCards cards={project.featureCards} />
+          <FeatureCards cards={project.featureCards} isVisible={isVisible} />
         </div>
 
         {/* Info */}
@@ -555,7 +555,7 @@ function DesktopProjectCard({ project }: { project: Project }) {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => setIsVisible(entry.isIntersecting),
-      { threshold: 0.5 }
+      { threshold: 0.15 }
     );
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
@@ -578,9 +578,9 @@ function DesktopProjectCard({ project }: { project: Project }) {
             isVisible ? "animate-fade-in-up" : "opacity-0"
           }`}
         >
-          <TechCards cards={project.techCards} />
+          <TechCards cards={project.techCards} isVisible={isVisible} />
           <DesktopMockup project={project} />
-          <FeatureCards cards={project.featureCards} />
+          <FeatureCards cards={project.featureCards} isVisible={isVisible} />
         </div>
 
         {/* Info — always below, centered */}
